@@ -11,22 +11,22 @@
 ```lua
 wifi
 .setmode(
-	(
-		wifi
-		.STATION
-	),
-	(
-		true
-	)
+  (
+    wifi
+    .STATION
+  ),
+  (
+    true
+  )
 )
 
 wifi
 .sta
 .config({
-	auto = true,
-	pwd = 'YOUR_WIFI_PASSWORD',
-	save = true,
-	ssid = 'YOUR_SSID',
+  auto = true,
+  pwd = 'YOUR_WIFI_PASSWORD',
+  save = true,
+  ssid = 'YOUR_SSID',
 })
 ```
 2. Run `yarn setup`.

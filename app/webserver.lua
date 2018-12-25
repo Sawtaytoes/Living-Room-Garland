@@ -32,7 +32,7 @@ local onReceivedData = function(socket, data)
 			)
 		)
 
-	elseif data:find('GET /light/off') then
+	elseif data:find('GET /lights/off') then
 		store
 		.dispatch(
 			actions
@@ -41,7 +41,7 @@ local onReceivedData = function(socket, data)
 			)
 		)
 
-	elseif data:find('GET /light/on') then
+	elseif data:find('GET /lights/on') then
 		store
 		.dispatch(
 			actions

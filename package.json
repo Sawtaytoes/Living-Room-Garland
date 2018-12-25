@@ -9,9 +9,10 @@
     "monit": "nodemcu-tool terminal",
     "reset": "nodemcu-tool reset",
     "setup": "nodemcu-tool upload initialize-wifi.lua && nodemcu-tool run initialize-wifi.lc && nodemcu-tool remove initialize-wifi.lc",
-    "start": "nodemcu-tool upload ./app/init.lua && nodemcu-tool upload ./app/wifi.lua && nodemcu-tool upload ./app/libraries.lua && nodemcu-tool upload ./app/redux.lua && nodemcu-tool upload ./app/garlandLightsReducer.lua && nodemcu-tool upload ./app/garlandLightsMiddleware.lua && nodemcu-tool upload ./app/store.lua && nodemcu-tool upload ./app/webserver.lua"
+    "start": "node ."
   },
   "dependencies": {
-    "nodemcu-tool": "^3.0.2"
+    "nodemcu-tool": "^3.0.2",
+    "nodemon": "^1.18.9"
   }
 }

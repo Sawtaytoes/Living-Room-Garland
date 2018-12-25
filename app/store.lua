@@ -1,13 +1,17 @@
-local middleware = {}
+local actionLoggerMiddleware = loadfile('actionLoggerMiddleware.lc')
+local garlandLightsMiddleware = loadfile('garlandLightsMiddleware.lc')
+local garlandLightsReducer = loadfile('garlandLightsReducer.lc')
+local libraries = loadfile('libraries.lc')
+local sendStateMiddleware = loadfile('sendStateMiddleware.lc')
 
-table
-.insert(
-	middleware,
-	garlandLightsMiddleware
-)
+local middleware = {
+	actionLoggerMiddleware,
+	garlandLightsMiddleware,
+	sendStateMiddleware,
+}
 
 local rootReducer = {
-	garlandLights = createGarlandLightsReducer()
+	garlandLights = garlandLightsReducer()
 }
 
 local store = (
@@ -19,7 +23,8 @@ local store = (
 
 store
 .subscribe(function()
-	print_as_json(
+	libraries
+	.print_as_json(
 		store
 		.getState()
 	)

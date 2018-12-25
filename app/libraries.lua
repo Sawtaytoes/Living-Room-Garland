@@ -125,3 +125,9 @@ local merge = function(a, b)
 
 	return a
 end
+
+return {
+	format_as_json,
+	merge,
+	print_as_json,
+}

@@ -1,45 +1,30 @@
-local TURN_OFF_GARLAND_LIGHTS = 'GARLAND_LIGHTS::TURN_OFF'
-local TURN_ON_GARLAND_LIGHTS = 'GARLAND_LIGHTS::TURN_ON'
+local actions = loadfile('actions.lc')
 
-local turnOffGarlandLights = function()
-	return {
-		type = TURN_OFF_GARLAND_LIGHTS,
-	}
-end
+local gpioStates = {
+	[gpio.LOW] = 'off',
+	[gpio.HIGH] = 'on',
+}
 
-local turnOnGarlandLights = function()
-	return {
-		type = TURN_ON_GARLAND_LIGHTS,
-	}
-end
+local initialState = 'unknown'
 
-local createGarlandLightsReducer = function()
-	local gpioStates = {
-		[gpio.LOW] = 'off',
-		[gpio.HIGH] = 'on',
-	}
+local reducerActions = {
+	[actions.TURN_OFF_GARLAND_LIGHTS] = function()
+		return initialState
+	end,
 
-	local initialState = 'unknown'
-
-	local reducerActions = {
-		[TURN_OFF_GARLAND_LIGHTS] = function()
-			return initialState
-		end,
-
-		[TURN_ON_GARLAND_LIGHTS] = function(
-			prevState,
-			action
-		)
-			return action.payload
-		end,
-	}
-
-	local garlandLightsReducer = (
-		createReducer(
-			reducerActions,
-			initialState
-		)
+	[actions.TURN_ON_GARLAND_LIGHTS] = function(
+		prevState,
+		action
 	)
+		return action.payload
+	end,
+}
 
-	return garlandLightsReducer
-end
+local garlandLightsReducer = (
+	createReducer(
+		reducerActions,
+		initialState
+	)
+)
+
+return garlandLightsReducer

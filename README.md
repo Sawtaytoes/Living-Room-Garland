@@ -11,13 +11,8 @@
 ```lua
 wifi
 .setmode(
-  (
-    wifi
-    .STATION
-  ),
-  (
-    true
-  )
+  wifi.STATION,
+  true
 )
 
 wifi

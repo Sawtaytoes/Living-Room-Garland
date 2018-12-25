@@ -3,7 +3,7 @@
 ## NodeMCU-Tool Config
 
 1. `npx nodemcu-tool init`
-2. `npx nodemcu-tool mkfs` // first-time config write
+2. `npx nodemcu-tool mkfs` // only execute this the first-time configuring a device
 
 ## Example Project Config
 

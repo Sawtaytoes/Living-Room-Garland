@@ -91,5 +91,3 @@ local createStore = function(
 
 	return store
 end
-
-createStore({}, {})

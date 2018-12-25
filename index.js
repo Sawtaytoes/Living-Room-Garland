@@ -15,19 +15,11 @@ fs
 		)
 
 		const uploadCommands = (
-			[
-				'nodemcu-tool upload --minify ./app/init.lua'
-			]
-			.concat(
-				filenames
-				.filter(filename => (
-					filename !== 'init.lua'
-				))
-				.map(filename => (
-					'nodemcu-tool upload --minify ./app/'
-					.concat(filename)
-				))
-			)
+			filenames
+			.map(filename => (
+				'nodemcu-tool upload --minify ./app/'
+				.concat(filename)
+			))
 		)
 
 		uploadCommands

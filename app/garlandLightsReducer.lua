@@ -1,4 +1,5 @@
-local actions = loadfile('actions.lc')
+local actions = loadfile('actions.lua')()
+local redux = loadfile('redux.lua')()
 
 local gpioStates = {
 	[gpio.LOW] = 'off',
@@ -21,7 +22,8 @@ local reducerActions = {
 }
 
 local garlandLightsReducer = (
-	createReducer(
+	redux
+	.createReducer(
 		reducerActions,
 		initialState
 	)

@@ -127,7 +127,7 @@ local merge = function(a, b)
 end
 
 return {
-	format_as_json,
-	merge,
-	print_as_json,
+	format_as_json = format_as_json,
+	merge = merge,
+	print_as_json = print_as_json,
 }

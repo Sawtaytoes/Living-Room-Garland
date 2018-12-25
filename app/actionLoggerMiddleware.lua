@@ -1,4 +1,4 @@
-local libraries = loadfile('libraries.lc')
+local libraries = loadfile('libraries.lua')()
 
 local actionLoggerMiddleware = (
 	function()

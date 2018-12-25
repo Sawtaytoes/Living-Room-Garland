@@ -31,10 +31,10 @@ local turnOnGarlandLights = function(
 end
 
 return {
-	SEND_STATE = SEND_STATE
-	sendState = sendState
-	TURN_OFF_GARLAND_LIGHTS = TURN_OFF_GARLAND_LIGHTS
-	TURN_ON_GARLAND_LIGHTS = TURN_ON_GARLAND_LIGHTS
-	turnOffGarlandLights = turnOffGarlandLights
-	turnOnGarlandLights = turnOnGarlandLights
+	SEND_STATE = SEND_STATE,
+	sendState = sendState,
+	TURN_OFF_GARLAND_LIGHTS = TURN_OFF_GARLAND_LIGHTS,
+	TURN_ON_GARLAND_LIGHTS = TURN_ON_GARLAND_LIGHTS,
+	turnOffGarlandLights = turnOffGarlandLights,
+	turnOnGarlandLights = turnOnGarlandLights,
 }

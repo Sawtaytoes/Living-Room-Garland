@@ -1,3 +1,5 @@
+local libraries = loadfile('libraries.lua')()
+
 local createReducer = function(
 	reducerActions,
 	initialState
@@ -66,9 +68,13 @@ local createStore = function(
 			nextState[key] = stateSlice
 		end
 
-		merge(state, nextState)
+		libraries
+		.merge(
+			state,
+			nextState
+		)
 
-		for func in ipairs(middleware) do
+		for _, func in ipairs(middleware) do
 			func(
 				store
 			)(
@@ -79,7 +85,7 @@ local createStore = function(
 			)
 		end
 
-		for subscriber in ipairs(subscribers) do
+		for _, subscriber in ipairs(subscribers) do
 			subscriber()
 		end
 
@@ -91,3 +97,8 @@ local createStore = function(
 
 	return store
 end
+
+return {
+	createReducer = createReducer,
+	createStore = createStore,
+}

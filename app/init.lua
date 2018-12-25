@@ -1,2 +1,2 @@
-dofile('wifi.lc')
-dofile('webserver.lc')
+dofile('wifi.lua')
+dofile('webserver.lua')

@@ -1,9 +1,9 @@
-local actionLoggerMiddleware = loadfile('actionLoggerMiddleware.lua')()
-local garlandLightsMiddleware = loadfile('garlandLightsMiddleware.lua')()
-local garlandLightsReducer = loadfile('garlandLightsReducer.lua')()
-local libraries = loadfile('libraries.lua')()
-local redux = loadfile('redux.lua')()
-local sendStateMiddleware = loadfile('sendStateMiddleware.lua')()
+local actionLoggerMiddleware = loadfile('actionLoggerMiddleware.lc')()
+local garlandLightsMiddleware = loadfile('garlandLightsMiddleware.lc')()
+local garlandLightsReducer = loadfile('garlandLightsReducer.lc')()
+local libraries = loadfile('libraries.lc')()
+local redux = loadfile('redux.lc')()
+local sendStateMiddleware = loadfile('sendStateMiddleware.lc')()
 
 local middleware = {
 	actionLoggerMiddleware,

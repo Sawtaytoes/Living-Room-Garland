@@ -1,4 +1,5 @@
-local actions = loadfile('actions.lua')()
+local actions = loadfile('actions.lc')()
+local libraries = loadfile('libraries.lc')()
 
 local sendStateMiddleware = (
 	function(store)
@@ -8,8 +9,11 @@ local sendStateMiddleware = (
 					action
 					.socket
 					:send(
-						store
-						.getState()
+						libraries
+						.format_as_json(
+							store
+							.getState()
+						)
 					)
 				end
 			end

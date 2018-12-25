@@ -1,4 +1,4 @@
-local actions = loadfile('actions.lua')()
+local actions = loadfile('actions.lc')()
 
 local garlandLightsRelayPin = 1
 

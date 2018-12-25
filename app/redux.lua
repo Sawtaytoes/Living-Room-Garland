@@ -1,5 +1,8 @@
-local libraries = loadfile('libraries.lua')()
-
+print('hi')
+local t = loadfile('libraries.lc')
+print(t)
+local libraries = t()
+print('hi2')
 local createReducer = function(
 	reducerActions,
 	initialState
@@ -11,6 +14,11 @@ local createReducer = function(
 		if not state then
 			state = initialState
 		end
+
+		print(action)
+		print(reducerActions)
+		print(action.type)
+		print(reducerActions[action.type])
 
 		return (
 			reducerActions[action.type]
@@ -75,6 +83,7 @@ local createStore = function(
 		)
 
 		for _, func in ipairs(middleware) do
+			print(func)
 			func(
 				store
 			)(
@@ -86,6 +95,7 @@ local createStore = function(
 		end
 
 		for _, subscriber in ipairs(subscribers) do
+			print(subscriber)
 			subscriber()
 		end
 

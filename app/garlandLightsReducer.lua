@@ -1,5 +1,5 @@
-local actions = loadfile('actions.lua')()
-local redux = loadfile('redux.lua')()
+local actions = loadfile('actions.lc')()
+local redux = loadfile('redux.lc')()
 
 local gpioStates = {
 	[gpio.LOW] = 'off',

@@ -1,5 +1,5 @@
-local actions = loadfile('actions.lua')()
-local store = loadfile('store.lua')()
+local actions = loadfile('actions.lc')()
+local store = loadfile('store.lc')()
 
 local onResponseSent = function(
 	socket
@@ -24,12 +24,13 @@ local onReceivedData = function(socket, data)
 
 	-- Routes
 	if data:find('GET /status') then
-		print(store.getState())
-		-- socket
-		-- :send(
-		-- 	store
-		-- 	.getState()
-		-- )
+		store
+		.dispatch(
+			actions
+			.sendState(
+				socket
+			)
+		)
 
 	elseif data:find('GET /light/off') then
 		store

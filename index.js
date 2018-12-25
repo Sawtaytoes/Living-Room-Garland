@@ -17,7 +17,7 @@ fs
 		const uploadCommands = (
 			filenames
 			.map(filename => (
-				'nodemcu-tool upload --minify ./app/'
+				'nodemcu-tool upload --compile ./app/'
 				.concat(filename)
 			))
 		)

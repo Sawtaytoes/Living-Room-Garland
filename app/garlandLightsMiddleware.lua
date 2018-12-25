@@ -1,11 +1,17 @@
 local actions = loadfile('actions.lc')()
 
-local garlandLightsRelayPin = 1
+local relayPin = 4
 
 gpio
 .mode(
-	garlandLightsRelayPin,
+	relayPin,
 	gpio.OUTPUT
+)
+
+gpio
+.mode(
+	relayPin,
+	gpio.LOW
 )
 
 local garlandLightsGpioPinActions = {
@@ -14,8 +20,8 @@ local garlandLightsGpioPinActions = {
 	)
 		gpio
 		.write(
-			lightsRelayPin,
-			gpio.LOW
+			relayPin,
+			gpio.HIGH
 		)
 
 		return (
@@ -32,8 +38,8 @@ local garlandLightsGpioPinActions = {
 	)
 		gpio
 		.write(
-			lightsRelayPin,
-			gpio.HIGH
+			relayPin,
+			gpio.LOW
 		)
 
 		return (
@@ -50,11 +56,14 @@ local garlandLightsMiddleware = (
 	function(store)
 		return function(next)
 			return function(action)
-				if (garlandLightsGpioPinActions[action.type]) then
+				garlandLightsGpioPinActions[action.type]
+				and (
 					next(
-						garlandLightsGpioPinActions[action.type]()
+						garlandLightsGpioPinActions[action.type](
+							action
+						)
 					)
-				end
+				)
 			end
 		end
 	end

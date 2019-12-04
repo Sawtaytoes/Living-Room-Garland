@@ -9,7 +9,7 @@ gpio
 )
 
 gpio
-.mode(
+.write(
 	relayPin,
 	gpio.LOW
 )
